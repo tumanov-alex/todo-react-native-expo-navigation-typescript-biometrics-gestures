@@ -35,5 +35,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'column',
     backgroundColor: '#333',
+    marginVertical: 20,
   },
 });

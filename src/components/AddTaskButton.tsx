@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   button: {
+    borderRadius: 500,
     justifyContent: 'center',
     paddingHorizontal: 20,
   },

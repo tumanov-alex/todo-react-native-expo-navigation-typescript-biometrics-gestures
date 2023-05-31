@@ -1,5 +1,4 @@
-import 'react-native-get-random-values';
-import { v4 as uuid4 } from 'uuid';
+import uuid from 'react-native-uuid';
 
 import { seedTasks } from './seedTasks';
 
@@ -16,7 +15,7 @@ export const createTaskSlice: StoreSlice<TaskSlice> = (set) => ({
         values: [
           ...state.tasks.values,
           {
-            id: uuid4(),
+            id: String(uuid.v4()),
             label,
             completed: false,
           },
