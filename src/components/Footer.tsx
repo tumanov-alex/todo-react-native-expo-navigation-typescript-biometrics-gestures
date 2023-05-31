@@ -7,6 +7,7 @@ import { useStore } from '../store/useStore';
 // @ts-ignore
 import SendIcon from '../../assets/send.svg';
 
+// Footer component managing task input and addition to the task list
 const FooterComponent = () => {
   const [taskLabel, setTaskLabel] = useState('');
   const tasks = useStore((state) => state.tasks);

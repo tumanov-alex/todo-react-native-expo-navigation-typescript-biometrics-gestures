@@ -12,6 +12,7 @@ interface TaskProps extends Omit<ITask, 'id'> {
   onToggle: () => void;
 }
 
+// The Task component, which is a swipeable row with a checkbox and a delete button
 export const Task = ({ label, completed, onDelete, onToggle }: TaskProps) => {
   return (
     <View style={styles.container}>

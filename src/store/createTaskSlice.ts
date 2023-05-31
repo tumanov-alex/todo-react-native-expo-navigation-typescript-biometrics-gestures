@@ -6,8 +6,9 @@ import { StoreSlice } from '../models/storeSlice';
 import { TaskSlice } from '../models/taskSlice';
 
 export const createTaskSlice: StoreSlice<TaskSlice> = (set) => ({
-  values: seedTasks,
+  values: seedTasks, // Initialize the state with seed tasks
 
+  // Define an action for adding a task
   addTask: (label: string) => {
     set((state) => ({
       tasks: {
@@ -23,6 +24,7 @@ export const createTaskSlice: StoreSlice<TaskSlice> = (set) => ({
       },
     }));
   },
+  // Define an action for removing a task
   removeTask: (id: string) => {
     set((state) => ({
       tasks: {
@@ -31,6 +33,7 @@ export const createTaskSlice: StoreSlice<TaskSlice> = (set) => ({
       },
     }));
   },
+  // Define an action for toggling a task's completion status
   toggleCompleted: (id: string) => {
     set((state) => ({
       tasks: {

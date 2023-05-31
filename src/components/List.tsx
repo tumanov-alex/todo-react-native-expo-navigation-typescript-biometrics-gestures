@@ -12,6 +12,7 @@ import { Task } from './Task';
 import { Task as ITask } from '../models/task';
 import { TaskSlice } from '../models/taskSlice';
 
+// Component rendering a list of tasks
 export const List = ({ tasks }: { tasks: TaskSlice }) => {
   const renderItem = useCallback(({ item: task }: { item: ITask }) => (
     <Task
@@ -22,6 +23,7 @@ export const List = ({ tasks }: { tasks: TaskSlice }) => {
     />
   ), []);
 
+  // Dismisses the keyboard if the user starts to scroll the task list
   const onScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
     if (e.nativeEvent.contentOffset.y < 0) {
       Keyboard.dismiss();
