@@ -6,7 +6,7 @@ import { seedTasks } from './seedTasks';
 import { StoreSlice } from '../models/storeSlice';
 import { TaskSlice } from '../models/taskSlice';
 
-export const createTaskSlice: StoreSlice<TaskSlice> = (set, get) => ({
+export const createTaskSlice: StoreSlice<TaskSlice> = (set) => ({
   values: seedTasks,
 
   addTask: (label: string) => {
