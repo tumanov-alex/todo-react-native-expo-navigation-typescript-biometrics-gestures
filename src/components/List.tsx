@@ -1,5 +1,11 @@
 import { useCallback } from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  Keyboard,
+  NativeSyntheticEvent, NativeScrollEvent,
+} from 'react-native';
 
 import { Task } from './Task';
 
@@ -16,6 +22,12 @@ export const List = ({ tasks }: { tasks: TaskSlice }) => {
     />
   ), []);
 
+  const onScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if (e.nativeEvent.contentOffset.y < 0) {
+      Keyboard.dismiss();
+    }
+  }, []);
+
   return (
     <View style={styles.container} testID={'list'}>
       <FlatList
@@ -24,6 +36,7 @@ export const List = ({ tasks }: { tasks: TaskSlice }) => {
         keyExtractor={(task) => task.id}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
+        onScroll={onScroll}
       />
     </View>
   );
@@ -34,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 8,
     flexWrap: 'wrap',
     flexDirection: 'column',
-    backgroundColor: '#333',
-    marginVertical: 20,
+    backgroundColor: '#1A1E21',
+    paddingTop: 25,
   },
 });

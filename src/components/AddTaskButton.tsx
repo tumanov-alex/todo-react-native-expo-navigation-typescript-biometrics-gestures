@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, Pressable, Text } from 'react-native';
+import { StyleSheet, TouchableHighlight } from 'react-native';
+
+// @ts-ignore
+import SendIcon from '../../assets/send.svg';
 
 interface AddTaskButtonProps {
   onTaskAdd: () => void;
@@ -7,9 +10,13 @@ interface AddTaskButtonProps {
 
 export const AddTaskButton = ({ onTaskAdd }: AddTaskButtonProps) => {
   return (
-    <Pressable onPress={onTaskAdd} style={styles.button}>
-      <Text style={styles.text}>Add</Text>
-    </Pressable>
+    <TouchableHighlight
+      underlayColor={'white'}
+      onPress={onTaskAdd}
+      style={styles.button}
+    >
+      <SendIcon width={35} height={35} />
+    </TouchableHighlight>
   );
 };
 
@@ -18,8 +25,11 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   button: {
-    borderRadius: 500,
+    paddingHorizontal: 25,
+    height: '100%',
+    paddingTop: 50,
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
 });

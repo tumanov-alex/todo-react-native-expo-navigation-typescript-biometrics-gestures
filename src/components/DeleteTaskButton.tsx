@@ -1,4 +1,8 @@
-import { Button, View, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Pressable } from 'react-native';
+
+// @ts-ignore
+import DeleteIcon from '../../assets/delete.svg';
 
 interface DeleteButtonProps {
   onPress: () => void;
@@ -6,15 +10,15 @@ interface DeleteButtonProps {
 
 export const DeleteButton = ({ onPress }: DeleteButtonProps) => (
   <View style={styles.container}>
-    <Button color="red" onPress={onPress} title="DELETE" />
+    <Pressable onPress={onPress}>
+      <DeleteIcon width={25} height={25} />
+    </Pressable>
   </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    margin: 0,
     alignContent: 'center',
     justifyContent: 'center',
-    width: 70,
   },
 });

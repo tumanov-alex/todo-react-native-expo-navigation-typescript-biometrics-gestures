@@ -1,19 +1,19 @@
-import React from 'react';
-import { KeyboardAvoidingView, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useMemo } from 'react';
+import { KeyboardAvoidingView, StyleSheet, Platform } from 'react-native';
 
 import { AppContent } from '../components/AppContent';
 
 export function HomeScreen() {
+  const keyboardBehavior = useMemo(
+    () => Platform.OS === 'ios' ? 'padding' : 'height', []);
+
   return (
     <KeyboardAvoidingView
-      behavior="position"
+      behavior={keyboardBehavior}
       style={styles.flexOne}
       contentContainerStyle={styles.flexOne}
     >
-      <SafeAreaView style={styles.container}>
-        <AppContent />
-      </SafeAreaView>
+      <AppContent />
     </KeyboardAvoidingView>
   );
 }
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#333',
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
   },

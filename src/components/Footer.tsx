@@ -1,9 +1,11 @@
-import { useState, memo, useCallback } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
 
 import { Input } from './Input';
 import { AddTaskButton } from './AddTaskButton';
 import { useStore } from '../store/useStore';
+// @ts-ignore
+import SendIcon from '../../assets/send.svg';
 
 const FooterComponent = () => {
   const [taskLabel, setTaskLabel] = useState('');
@@ -34,8 +36,9 @@ export const Footer = memo(FooterComponent);
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: '#222',
     flex: 1,
     flexDirection: 'row',
+    paddingBottom: 50,
+    backgroundColor: 'white',
   },
 });

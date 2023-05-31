@@ -29,6 +29,7 @@ export const Input = ({ taskLabel, setTaskLabel, onTaskAdd }: InputProps) => {
 const backgroundColor = 'white';
 const styles = StyleSheet.create({
   container: {
+    minHeight: 100,
     flex: 1,
     width: '100%',
     backgroundColor,

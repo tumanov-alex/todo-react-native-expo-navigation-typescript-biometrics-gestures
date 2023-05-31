@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import { Swipeable } from 'react-native-gesture-handler';
+import { SwipeableRow } from './SwipableRow';
 
 import { DeleteButton } from './DeleteTaskButton';
 
@@ -13,48 +13,47 @@ interface TaskProps extends Omit<ITask, 'id'> {
 }
 
 export const Task = ({ label, completed, onDelete, onToggle }: TaskProps) => {
-  const renderRightActions = useCallback(() => (
-    <DeleteButton onPress={onDelete} />
-  ), []);
-
   return (
     <View style={styles.container}>
-      <Swipeable
-        renderRightActions={renderRightActions}
-        overshootRight={false}
+      <SwipeableRow
+        button={<DeleteButton onPress={onDelete} />}
+        onButtonPress={onDelete}
       >
         <BouncyCheckbox
           isChecked={completed}
           onPress={onToggle}
           text={label}
           size={25}
-          fillColor="red"
+          fillColor={checkboxColor}
           unfillColor="#FFFFFF"
           textStyle={styles.textStyle}
           textContainerStyle={styles.textContainerStyle}
           iconStyle={styles.iconStyle}
           innerIconStyle={styles.innerIconStyle}
         />
-      </Swipeable>
+      </SwipeableRow>
     </View>
   );
 };
 
+const checkboxColor = '#6c75d2';
 const styles = StyleSheet.create({
   container: {
     marginBottom: 20,
     paddingLeft: 30,
     paddingRight: 80,
-    flex: 1,
+    textWrap: 'wrap',
   },
   textStyle: {
     fontWeight: 'bold',
+    color: '#ddd',
   },
   textContainerStyle: {
-    width: '100%'
+    width: '100%',
+    textWrap: 'wrap',
   },
   iconStyle: {
-    borderColor: 'red',
+    borderColor: checkboxColor,
   },
   innerIconStyle: {
     borderWidth: 2,

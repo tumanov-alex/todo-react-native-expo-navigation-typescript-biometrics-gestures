@@ -3,6 +3,8 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
 
+import { colors } from '../constants/colors';
+
 type RootStackParamList = {
   Auth: undefined;
   Home: undefined;
@@ -49,7 +51,7 @@ export function AuthScreen({ navigation }: AuthProps) {
 
   return (
     <View style={styles.container}>
-      <Text>Please authenticate before using the app</Text>
+      <Text style={styles.text}>Please authenticate before using the app</Text>
     </View>
   );
 }
@@ -59,5 +61,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.dark,
+  },
+  text: {
+    color: 'white',
   },
 });

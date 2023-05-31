@@ -1,16 +1,29 @@
-import { useStore } from '../store/useStore';
 import React from 'react';
+import { StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { useStore } from '../store/useStore';
 import { List } from './List';
 import { Footer } from './Footer';
+import { colors } from '../constants/colors';
 
 export const AppContent = () => {
   const tasks = useStore((state) => state.tasks);
 
   return (
-    <React.Fragment>
-      <List tasks={tasks} />
+    <>
+      <SafeAreaView style={styles.container}>
+        <List tasks={tasks} />
+      </SafeAreaView>
 
       <Footer />
-    </React.Fragment>
+    </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 10,
+    backgroundColor: colors.dark,
+  },
+});
