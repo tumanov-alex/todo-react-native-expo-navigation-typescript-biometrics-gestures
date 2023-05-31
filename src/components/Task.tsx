@@ -31,7 +31,6 @@ export const Task = ({ label, completed, onDelete, onToggle }: TaskProps) => {
           fillColor="red"
           unfillColor="#FFFFFF"
           textStyle={styles.textStyle}
-          textContainerStyle={styles.textContainerStyle}
           iconStyle={styles.iconStyle}
           innerIconStyle={styles.innerIconStyle}
         />
@@ -50,7 +49,6 @@ const styles = StyleSheet.create({
   textStyle: {
     fontWeight: 'bold',
   },
-  textContainerStyle: {},
   iconStyle: {
     borderColor: 'red',
   },

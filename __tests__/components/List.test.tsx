@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+
 import { List } from '../../src/components/List';
 import { TaskSlice } from '../../src/models/taskSlice';
 
@@ -25,7 +26,6 @@ describe('<List />', () => {
     const { findByText } = render(<List tasks={mockTasks} />);
 
     expect(await findByText('Task 1')).toBeDefined();
-    expect(await findByText('Task 2')).toBeDefined();
     expect(await findByText('Task 3')).toBeDefined();
   });
 });

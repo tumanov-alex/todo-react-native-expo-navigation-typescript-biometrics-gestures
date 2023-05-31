@@ -2,13 +2,9 @@ import React from 'react';
 import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { List } from '../components/List';
-import { Footer } from '../components/Footer';
-import { useStore } from '../store/useStore';
+import { AppContent } from '../components/AppContent';
 
 export function HomeScreen() {
-  const tasks = useStore((state) => state.tasks);
-
   return (
     <KeyboardAvoidingView
       behavior="position"
@@ -16,9 +12,7 @@ export function HomeScreen() {
       contentContainerStyle={styles.flexOne}
     >
       <SafeAreaView style={styles.container}>
-        <List tasks={tasks} />
-
-        <Footer />
+        <AppContent />
       </SafeAreaView>
     </KeyboardAvoidingView>
   );
