@@ -43,7 +43,7 @@ export function AuthScreen({ navigation }: AuthProps) {
   }, []);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Please authenticate before using the app</Text>
     </View>
   )
@@ -51,6 +51,7 @@ export function AuthScreen({ navigation }: AuthProps) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   }

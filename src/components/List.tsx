@@ -5,10 +5,9 @@ import { useStore } from '../store/useStore';
 import { Task } from './Task';
 
 import { Task as ITask } from '../models/task';
+import { TaskSlice } from '../models/taskSlice';
 
-export const List = () => {
-  const tasks = useStore((state) => state.tasks);
-
+export const List = ({ tasks }: { tasks: TaskSlice }) => {
   const renderItem = useCallback(({ item: task }: { item: ITask }) => (
     <Task
       label={task.label}
@@ -19,7 +18,7 @@ export const List = () => {
   ), []);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID={'list'}>
       <FlatList
         data={tasks.values}
         renderItem={renderItem}
