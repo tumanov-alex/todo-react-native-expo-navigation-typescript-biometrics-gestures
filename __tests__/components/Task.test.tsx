@@ -6,7 +6,7 @@ it('renders correctly and can be toggled and deleted', () => {
   const onToggle = jest.fn();
   const onDelete = jest.fn();
 
-  const { getByText } = render(
+  const { getByText, getByTestId } = render(
     <Task
       label="Test Task"
       completed={false}
@@ -18,7 +18,7 @@ it('renders correctly and can be toggled and deleted', () => {
   fireEvent.press(taskText);
   expect(onToggle).toHaveBeenCalled();
 
-  const deleteButton = getByText('DELETE');
+  const deleteButton = getByTestId('DeleteIcon');
   fireEvent.press(deleteButton);
   expect(onDelete).toHaveBeenCalled();
 });

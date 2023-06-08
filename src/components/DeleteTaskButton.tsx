@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Pressable } from 'react-native';
 
-// @ts-ignore
-import DeleteIcon from '../../assets/delete.svg';
+import { DeleteIcon } from '../icons/DeleteIcon';
 
 interface DeleteButtonProps {
   onPress: () => void;
@@ -11,7 +10,7 @@ interface DeleteButtonProps {
 export const DeleteButton = ({ onPress }: DeleteButtonProps) => (
   <View style={styles.container}>
     <Pressable onPress={onPress}>
-      <DeleteIcon width={25} height={25} />
+      <DeleteIcon width={25} height={25} testID='DeleteIcon' />
     </Pressable>
   </View>
 );

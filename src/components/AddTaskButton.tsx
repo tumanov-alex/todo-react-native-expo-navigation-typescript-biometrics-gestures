@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
+import { StyleSheet, TouchableHighlight, View } from 'react-native';
 
-// @ts-ignore
-import SendIcon from '../../assets/send.svg';
+import { SendIcon } from '../icons/SendIcon';
 
 interface AddTaskButtonProps {
   onTaskAdd: () => void;
@@ -15,7 +14,7 @@ export const AddTaskButton = ({ onTaskAdd }: AddTaskButtonProps) => {
       onPress={onTaskAdd}
       style={styles.button}
     >
-      <SendIcon width={35} height={35} />
+      <SendIcon width={35} height={35} testID='SendIcon' />
     </TouchableHighlight>
   );
 };

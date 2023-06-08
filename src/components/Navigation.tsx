@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 export const Navigation = () => (
   <NavigationContainer>
     <Stack.Navigator
-      initialRouteName="Auth"
+      initialRouteName="Home"
       screenOptions={{
         ...TransitionPresets.ModalFadeTransition,
       }}
